@@ -10,10 +10,29 @@
 
 
 	 <scm>
-		<connection>scm:git:ssh://github.com/cheehoo/testprojectX.git</connection>
-		<developerConnection>scm:git:ssh://github.com/cheehoo/testprojectX.git</developerConnection>
-		<url>scm:git:ssh://@github.com/cheehoo/testprojectX.git</url>
+		 <connection>scm:git:git://github.com/cheehoo/testprojectX</connection>
+       		 <developerConnection>scm:git:git://github.com/cheehoo/testprojectX</developerConnection>
+		 <url></url>
     	 </scm>  
+
+<!--
+
+	scm:git:git://server_name[:port]/path_to_repository
+	scm:git:http://server_name[:port]/path_to_repository
+	scm:git:https://server_name[:port]/path_to_repository
+	scm:git:ssh://server_name[:port]/path_to_repository
+	scm:git:file://[hostname]/path_to_repository
+
+    * Examples
+
+      scm:git:git://github.com/path_to_repository
+      scm:git:http://github.com/path_to_repository
+      scm:git:https://github.com/path_to_repository
+      scm:git:ssh://github.com/path_to_repository
+      scm:git:file://localhost/path_to_repository
+
+
+-->
 <!--
   <scm>
         <connection>scm:svn:https://wakaleo.devguard.com/svn/maven-plugins/maven-schemaspy-plugin/trunk</connection>
@@ -315,7 +334,15 @@
 				
 			      </plugin>
 
-				
+				  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-plugin</artifactId>
+        <version>1.5</version>
+        <configuration>
+          <connectionType>connection</connectionType> 
+        </configuration>
+      </plugin>
+
 
 
 
