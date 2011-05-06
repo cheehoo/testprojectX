@@ -4,13 +4,13 @@
 	<groupId>com.wedding</groupId>
 	<artifactId>wedding</artifactId>
 	<packaging>war</packaging>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.2.0</version>
 	<name>wedding</name>
 
  <scm>
 		 <connection>scm:git:git@github.com:cheehoo/testprojectX.git</connection>
        		 <developerConnection>scm:git:git@github.com:cheehoo/testprojectX.git</developerConnection>
-		 <url></url>
+		 <url />
  </scm>  
 
 
