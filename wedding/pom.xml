@@ -10,9 +10,9 @@
 
 
 	 <scm>
-		<connection>scm:git:git@github.com:cheehoo/testprojectX.git</connection>
-		<developerConnection>scm:git:git@github.com:cheehoo/testprojectX.git</developerConnection>
-		<url>scm:git:git@github.com:cheehoo/testprojectX.git</url>
+		<connection>scm:git:ssh://github.com/cheehoo/testprojectX.git</connection>
+		<developerConnection>scm:git:ssh://github.com/cheehoo/testprojectX.git</developerConnection>
+		<url>scm:git:ssh://@github.com/cheehoo/testprojectX.git</url>
     	 </scm>  
 <!--
   <scm>
@@ -297,6 +297,12 @@
             <artifactId>com.springsource.javax.activation</artifactId>
             <version>1.1.1</version>
         </dependency>
+
+<dependency>
+    <groupId>org.apache.maven.scm</groupId>
+    <artifactId>maven-scm-provider-gitexe</artifactId>
+    <version>1.5</version>
+</dependency>
     </dependencies>
 	
 	<build>
@@ -310,6 +316,7 @@
 			      </plugin>
 
 				
+
 
 
 			   
