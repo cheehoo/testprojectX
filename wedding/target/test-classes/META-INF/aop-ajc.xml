@@ -1,0 +1,9 @@
+<aspectj>
+<aspects>
+<aspect name="com.wedding.domain.RsvpIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.wedding.domain.RsvpDataOnDemand_Roo_Configurable"/>
+<aspect name="com.wedding.domain.RsvpIntegrationTest_Roo_Configurable"/>
+<aspect name="com.wedding.domain.RsvpDataOnDemand_Roo_DataOnDemand"/>
+</aspects>
+</aspectj>
+

@@ -1,0 +1,73 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <script type="text/javascript">dojo.require('dijit.TitlePane');dojo.require('dijit.form.SimpleTextarea');dojo.require('dijit.form.DateTextBox');</script>
+    <div id="_title_div">
+        <spring:message code="label.rsvp" var="entity_label"/>
+        <spring:message arguments="${entity_label}" code="entity.update" var="title_msg"/>
+        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_title_div', widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}})); </script>
+        <spring:url value="/rsvp/${rsvp.id}" var="form_url"/>
+        <form:form action="${form_url}" method="PUT" modelAttribute="rsvp">
+            <form:errors cssClass="errors" delimiter="&lt;p/&gt;"/>
+            <div id="roo_rsvp_code">
+                <label for="_code_id">Code:</label>
+                <form:input cssStyle="width:250px" id="_code_id" maxlength="30" path="code" size="0"/>
+                <br/>
+                <form:errors cssClass="errors" id="_code_error_id" path="code"/>
+                <spring:message arguments="Code" code="field.invalid" var="field_invalid"/>
+                <spring:message code="field.required" var="field_required"/>
+                <spring:message argumentSeparator="," arguments="Code,(${field_required})" code="field.simple.validation" var="field_validation"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_code_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: '${field_validation}', invalidMessage: '${field_invalid}', required : true}})); </script>
+            </div>
+            <br/>
+            <div id="roo_rsvp_email">
+                <label for="_email_id">Email:</label>
+                <form:input cssStyle="width:250px" id="_email_id" maxlength="30" path="email" size="0"/>
+                <br/>
+                <form:errors cssClass="errors" id="_email_error_id" path="email"/>
+                <spring:message code="field.invalid.email" var="field_invalid"/>
+                <spring:message code="field.required" var="field_required"/>
+                <spring:message argumentSeparator="," arguments="Email," code="field.simple.validation" var="field_validation"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_email_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: '${field_validation}', invalidMessage: '${field_invalid}', required : false}})); </script>
+            </div>
+            <br/>
+            <div id="roo_rsvp_attending">
+                <label for="_attending_id">Attending:</label>
+                <form:input cssStyle="width:250px" id="_attending_id" maxlength="30" path="attending" size="0"/>
+                <br/>
+                <form:errors cssClass="errors" id="_attending_error_id" path="attending"/>
+                <spring:message code="field.invalid.integer" var="field_invalid"/>
+                <spring:message code="field.required" var="field_required"/>
+                <spring:message argumentSeparator="," arguments="Attending," code="field.simple.validation" var="field_validation"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_attending_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: '${field_validation}', invalidMessage: '${field_invalid}', regExp: '-?[0-9]*', required : false}})); </script>
+            </div>
+            <br/>
+            <div id="roo_rsvp_specialRequests">
+                <label for="_specialRequests_id">Special Requests:</label>
+                <form:textarea cssStyle="width:250px" id="_specialRequests_id" path="specialRequests"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_specialRequests_id', widgetType: 'dijit.form.SimpleTextarea', widgetAttrs: {}})); </script>
+                <br/>
+                <form:errors cssClass="errors" id="_specialRequests_error_id" path="specialRequests"/>
+            </div>
+            <br/>
+            <div id="roo_rsvp_confirmed">
+                <label for="_confirmed_id">Confirmed:</label>
+                <form:input cssStyle="width:250px" id="_confirmed_id" maxlength="30" path="confirmed" size="0"/>
+                <br/>
+                <form:errors cssClass="errors" id="_confirmed_error_id" path="confirmed"/>
+                <spring:message arguments="Confirmed" code="field.invalid" var="field_invalid"/>
+                <spring:message code="field.required" var="field_required"/>
+                <spring:message argumentSeparator="," arguments="Confirmed," code="field.simple.validation" var="field_validation"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_confirmed_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: '${field_validation}', invalidMessage: '${field_invalid}', required : false}})); </script>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_confirmed_id', widgetType : 'dijit.form.DateTextBox', widgetAttrs : {promptMessage: '${field_validation}', constraints: {datePattern : '${rsvp_confirmed_date_format}', required : false}, datePattern : '${rsvp_confirmed_date_format}'}})); </script>
+            </div>
+            <br/>
+            <div class="submit" id="roo_rsvp_submit">
+                <spring:message code="button.update" var="update_button"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+                <input id="proceed" type="submit" value="${update_button}"/>
+            </div>
+            <form:hidden id="_id_id" path="id"/>
+            <form:hidden id="_version_id" path="version"/>
+        </form:form>
+    </div>
+</div>

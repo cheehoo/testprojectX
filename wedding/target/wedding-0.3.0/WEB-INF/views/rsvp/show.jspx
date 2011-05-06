@@ -1,0 +1,49 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <script type="text/javascript">dojo.require('dijit.TitlePane');</script>
+    <div id="_title_div">
+        <spring:message code="label.rsvp" var="entity_label"/>
+        <spring:message arguments="${entity_label}" code="entity.show" var="title_msg"/>
+        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_title_div', widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}})); </script>
+        <c:if test="${not empty rsvp}">
+            <div id="roo_rsvp_code">
+                <label for="_code_id">Code:</label>
+                <div class="box" id="_code_id">
+                    <c:out value="${rsvp.code}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_rsvp_email">
+                <label for="_email_id">Email:</label>
+                <div class="box" id="_email_id">
+                    <c:out value="${rsvp.email}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_rsvp_attending">
+                <label for="_attending_id">Attending:</label>
+                <div class="box" id="_attending_id">
+                    <c:out value="${rsvp.attending}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_rsvp_specialRequests">
+                <label for="_specialRequests_id">Special Requests:</label>
+                <div class="box" id="_specialRequests_id">
+                    <c:out value="${rsvp.specialRequests}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_rsvp_confirmed">
+                <label for="_confirmed_id">Confirmed:</label>
+                <div class="box" id="_confirmed_id">
+                    <fmt:formatDate pattern="${rsvp_confirmed_date_format}" value="${rsvp.confirmed}"/>
+                </div>
+            </div>
+            <br/>
+        </c:if>
+        <c:if test="${empty rsvp}">
+            <spring:message arguments="${entity_label}" code="entity.not.found.single"/>
+        </c:if>
+    </div>
+</div>

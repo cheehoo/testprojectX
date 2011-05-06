@@ -1,0 +1,62 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" id="menu" version="2.0">
+	<jsp:output omit-xml-declaration="yes"/>
+	<ul id="roo_menu">
+			
+	<li id="web_mvc_jsp_rsvp_category">
+            <h2>
+                <spring:message code="menu.category.web_mvc_jsp_rsvp_category.label"/>
+            </h2>
+            <ul>
+                <li id="web_mvc_jsp_create_rsvp_menu_item">
+                    <spring:url value="/rsvp/form" var="web_mvc_jsp_create_rsvp_menu_item_url"/>
+                    <a href="${web_mvc_jsp_create_rsvp_menu_item_url}">
+                        <spring:message code="label.rsvp" var="label_rsvp"/>
+                        <spring:message arguments="${label_rsvp}" code="global.menu.new"/>
+                    </a>
+                </li>
+            <li id="web_mvc_jsp_list_rsvp_menu_item">
+                    <spring:url value="/rsvp?page=${empty param.page ? 1 : param.page}&amp;amp;size=${empty param.size ? 10 : param.size}" var="web_mvc_jsp_list_rsvp_menu_item_url"/>
+                    <a href="${web_mvc_jsp_list_rsvp_menu_item_url}">
+                        <spring:message code="label.rsvps" var="label_rsvps"/>
+                        <spring:message arguments="${label_rsvps}" code="global.menu.list"/>
+                    </a>
+                </li>
+            <li id="finder_findrsvpsbycodeequals_menu_item">
+                    <spring:url value="/rsvp/find/ByCodeEquals/form" var="finder_findrsvpsbycodeequals_menu_item_url"/>
+                    <a href="${finder_findrsvpsbycodeequals_menu_item_url}">
+                        <spring:message code="label.codeequals" var="label_codeequals"/>
+                        <spring:message arguments="${label_codeequals}" code="global.menu.find"/>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    <li id="selenium_category">
+            <h2>
+                <spring:message code="menu.category.selenium_category.label"/>
+            </h2>
+            <ul>
+                <li id="selenium_test_suite_menu_item">
+                    <spring:url value="/static/selenium/test-suite.xhtml" var="selenium_test_suite_menu_item_url"/>
+                    <a href="${selenium_test_suite_menu_item_url}">
+                        <spring:message code="label.test" var="label_test"/>
+                        <spring:message arguments="${label_test}" code="selenium.menu.test.suite"/>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    <li id="web_mvc_jsp_manual_controller_category">
+            <h2>
+                <spring:message code="menu.category.web_mvc_jsp_manual_controller_category.label"/>
+            </h2>
+            <ul>
+                <li id="web_mvc_jsp_list_publicrsvp_menu_item">
+                    <spring:url value="/publicrsvp/index" var="web_mvc_jsp_list_publicrsvp_menu_item_url"/>
+                    <a href="${web_mvc_jsp_list_publicrsvp_menu_item_url}">
+                        <spring:message code="label.publicrsvpcontroller" var="label_publicrsvpcontroller"/>
+                        <spring:message arguments="${label_publicrsvpcontroller}" code="label.publicrsvp"/>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
